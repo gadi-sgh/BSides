@@ -12,7 +12,7 @@ def main():
 
     graph: Graph = Graph(azure_settings)
 
-    greet_user(graph)
+    #greet_user(graph)
 
     choice = -1
 
@@ -20,10 +20,12 @@ def main():
         print('Please choose one of the following options:')
         print('0. Exit')
         print('1. Display access token')
-        print('2. List my inbox')
-        print('3. Send mail')
-        print('4. List users (requires app-only)')
-        print('5. Make a Graph call')
+        print('2. List apps')
+        print('3. find app')
+        print('4. start app')
+        print('5. stop app')
+        print('6. List users (requires app-only)')
+
 
         try:
             choice = int(input())
@@ -35,20 +37,25 @@ def main():
         elif choice == 1:
             display_access_token(graph)
         elif choice == 2:
-            list_inbox(graph)
+            list_apps(graph)
         elif choice == 3:
-            send_mail(graph)
+            find_app(graph)
         elif choice == 4:
-            list_users(graph)
+            start_app(graph)
         elif choice == 5:
-            make_graph_call(graph)
+            stop_app(graph)
+        elif choice == 6:
+            list_users(graph)
         else:
             print('Invalid choice!\n')
 
 
 def greet_user(graph: Graph):
-    # TODO
-    return
+    user = graph.get_user()
+    print('Hello,', user['displayName'])
+    # For Work/school accounts, email is in mail property
+    # Personal accounts, email is in userPrincipalName
+    print('Email:', user['mail'] or user['userPrincipalName'], '\n')
 
 
 def display_access_token(graph: Graph):
@@ -57,24 +64,54 @@ def display_access_token(graph: Graph):
 
 
 def list_inbox(graph: Graph):
-    # TODO
-    return
+    message_page = graph.get_inbox()
 
+    # Output each message's details
+    print(message_page)
+    for message in message_page['value']:
+        print('Message:', message['subject'])
+        print('  From:', message['from']['emailAddress']['name'])
+        print('  Status:', 'Read' if message['isRead'] else 'Unread')
+        print('  Received:', message['receivedDateTime'])
 
-def send_mail(graph: Graph):
-    # TODO®
-    return
+    # If @odata.nextLink is present
+    more_available = '@odata.nextLink' in message_page
+    print('\nMore messages available?', more_available, '\n')
+
 
 
 def list_users(graph: Graph):
-    # TODO
-    return
+    users_page = graph.get_users()
+
+    # Output each users's details
+    for user in users_page['value']:
+        print('User:', user['displayName'])
+        print('  ID:', user['id'])
+        print('  Email:', user['mail'])
+
+    # If @odata.nextLink is present
+    more_available = '@odata.nextLink' in users_page
+    print('\nMore users available?', more_available, '\n')
 
 
-def make_graph_call(graph: Graph):
-    # TODO
-    return
+def list_apps(graph: Graph):
+    list_api = graph.get_apps()
+    print(list_api)
 
+
+def find_app(graph: Graph):
+    list_api = graph.get_app()
+    print(list_api)
+
+def start_app(graph: Graph):
+    token = graph.get_user_token()
+    return_msg = graph.enable_app(True,token)
+    print(return_msg)
+
+def stop_app(graph: Graph):
+    token = graph.get_user_token()
+    return_msg = graph.enable_app(False,token)
+    print(return_msg)
 
 # Run main
 main()
