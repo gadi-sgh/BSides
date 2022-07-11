@@ -12,7 +12,7 @@ def main():
 
     graph: Graph = Graph(azure_settings)
 
-    #greet_user(graph)
+    greet_user(graph)
 
     choice = -1
 
@@ -37,7 +37,7 @@ def main():
         elif choice == 1:
             display_access_token(graph)
         elif choice == 2:
-            list_apps(graph)
+            list_servicePrincipals(graph)
         elif choice == 3:
             find_app(graph)
         elif choice == 4:
@@ -98,6 +98,9 @@ def list_apps(graph: Graph):
     list_api = graph.get_apps()
     print(list_api)
 
+def list_servicePrincipals(graph: Graph):
+    list = graph.get_servicePrincipals()
+    print(list)
 
 def find_app(graph: Graph):
     list_api = graph.get_app()

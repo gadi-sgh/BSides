@@ -89,6 +89,21 @@ class Graph:
 
         list_response = self.user_client.get(request_url)
         return list_response.json()
+
+    def get_servicePrincipals(self):
+        # INSERT YOUR CODE HERE
+        # Note: if using app_client, be sure to call
+        # ensure_graph_for_app_only_auth before using it
+        # self.ensure_graph_for_app_only_auth()
+
+        endpoint = '/servicePrincipals'
+        # Only request specific properties
+        select = 'id,accountEnabled,appDisplayName,appId,appOwnerOrganizationId'
+        request_url = f'{endpoint}?$select={select}'
+
+        list_response = self.user_client.get(request_url)
+        return list_response.json()
+
 # pylint: disable-next=no-self-use
     def get_app(self):
         # INSERT YOUR CODE HERE
