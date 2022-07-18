@@ -12,7 +12,9 @@ def main():
 
     graph: Graph = Graph(azure_settings)
 
-    greet_user(graph)
+    print("here")
+    #greet_user(graph)
+    print("here2")
 
     choice = -1
 

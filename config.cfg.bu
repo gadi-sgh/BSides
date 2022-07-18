@@ -1,3 +1,27 @@
+Demisto
+[azure]
+clientId = 6b071e63-f701-454b-9e54-ede4c96483e6
+authTenant = common
+graphUserScopes = Application.ReadWrite.All  user.read
+
+The Real Graph Explorer
+[azure]
+clientId = 72f988bf-86f1-41af-91ab-2d7cd011db47
+tenantId = 1473922a-f82b-4e4e-aa55-33d161951982
+authTenant = common
+graphUserScopes = Application.ReadWrite.All  user.read
+
+
+
+
+Don't recall
+[azure]
+clientId = 7f4add5c-1bfa-4f74-8bb8-cc666d053aea
+tenantId = 1473922a-f82b-4e4e-aa55-33d161951982
+authTenant = common
+graphUserScopes = Application.ReadWrite.All  user.read
+
+
 MalApp
 [azure]
 clientId = a7525fc5-c7d3-49f6-9449-50fc2126f689
