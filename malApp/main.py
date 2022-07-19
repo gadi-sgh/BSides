@@ -22,11 +22,13 @@ def main():
         print('Please choose one of the following options:')
         print('0. Exit')
         print('1. Display access token')
-        print('2. List apps')
+        print('2. List Service Principals')
         print('3. find app')
         print('4. start app')
         print('5. stop app')
-        print('6. List users (requires app-only)')
+        print('6. add app password')
+        print('7. List users (requires app-only)')
+        print('8. List apps (requires app-only)')
 
 
         try:
@@ -47,7 +49,12 @@ def main():
         elif choice == 5:
             stop_app(graph)
         elif choice == 6:
+            add_app_password(graph)
+        elif choice == 7:
             list_users(graph)
+        elif choice == 8:
+            list_apps(graph)
+
         else:
             print('Invalid choice!\n')
 
@@ -116,6 +123,17 @@ def start_app(graph: Graph):
 def stop_app(graph: Graph):
     token = graph.get_user_token()
     return_msg = graph.enable_app(False,token)
+    print(return_msg)
+
+def add_app_password(graph: Graph):
+    token = graph.get_user_token()
+    return_msg = graph.add_password(token)
+    print(return_msg)
+
+
+def add_app_password(graph: Graph):
+    token = graph.get_user_token()
+    return_msg = graph.add_password(token)
     print(return_msg)
 
 # Run main

