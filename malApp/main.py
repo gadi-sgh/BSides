@@ -12,9 +12,8 @@ def main():
 
     graph: Graph = Graph(azure_settings)
 
-    print("here")
     #greet_user(graph)
-    print("here2")
+
 
     choice = -1
 
@@ -27,8 +26,9 @@ def main():
         print('4. start app')
         print('5. stop app')
         print('6. add app password')
-        print('7. List users (requires app-only)')
-        print('8. List apps (requires app-only)')
+        print('7. add app permissions ')
+        print('8. List apps ')
+        print('9. create malicious apps ')
 
 
         try:
@@ -51,9 +51,11 @@ def main():
         elif choice == 6:
             add_app_password(graph)
         elif choice == 7:
-            list_users(graph)
+            add_app_permissions(graph)
         elif choice == 8:
             list_apps(graph)
+        elif choice == 9:
+            create_malicious_app(graph)
 
         else:
             print('Invalid choice!\n')
@@ -130,10 +132,22 @@ def add_app_password(graph: Graph):
     return_msg = graph.add_password(token)
     print(return_msg)
 
-
-def add_app_password(graph: Graph):
+def add_app_permissions(graph: Graph):
     token = graph.get_user_token()
-    return_msg = graph.add_password(token)
+    return_msg = graph.add_permissions(token)
+    print(return_msg)
+
+
+
+
+def create_malicious_app(graph: Graph):
+    token = graph.get_user_token()
+    return_msg = graph.create_app(token)
+    print(return_msg)
+    id = return_msg["id"]
+    return_msg = graph.add_password(token ,id)
+    print(return_msg)
+    return_msg = graph.add_app_permissions(token,id)
     print(return_msg)
 
 # Run main

