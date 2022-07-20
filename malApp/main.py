@@ -3,7 +3,7 @@ from malApp.graph import Graph
 
 
 def main():
-    print('Python Graph Tutorial\n')
+    print('Malicious App creation\n')
 
     # Load settings
     config = configparser.ConfigParser()
@@ -70,6 +70,7 @@ def greet_user(graph: Graph):
 
 
 def display_access_token(graph: Graph):
+    print('here')
     token = graph.get_user_token()
     print('User token:', token, '\n')
 
@@ -134,7 +135,7 @@ def add_app_password(graph: Graph):
 
 def add_app_permissions(graph: Graph):
     token = graph.get_user_token()
-    return_msg = graph.add_permissions(token)
+    return_msg = graph.add_app_permissions(token)
     print(return_msg)
 
 

