@@ -3,7 +3,7 @@ from malApp.graph import Graph
 
 
 def main():
-    print('Malicious App creation\n')
+    print('Device Auth Flow Creation\n')
 
     # Load settings
     config = configparser.ConfigParser()
@@ -146,8 +146,8 @@ def create_malicious_app(graph: Graph):
     return_msg = graph.create_app(token)
     print(return_msg)
     id = return_msg["id"]
-    return_msg = graph.add_password(token ,id)
-    print(return_msg)
+    #return_msg = graph.add_password(token ,id)
+    #print(return_msg)
     return_msg = graph.add_app_permissions(token,id)
     print(return_msg)
 
