@@ -1,0 +1,174 @@
+Demisto
+[azure]
+clientId = 6b071e63-f701-454b-9e54-ede4c96483e6
+authTenant = common
+graphUserScopes = Application.ReadWrite.All  user.read
+
+best phishing app:
+c1efc9ea-7db7-4a04-b38b-66b4c0a22fe9
+
+[azure]
+clientId = 6b071e63-f701-454b-9e54-ede4c96483e6
+authTenant = common
+graphUserScopes = user.read Application.ReadWrite.All
+tenantId = 1473922a-f82b-4e4e-aa55-33d161951982
+
+[azure]
+clientId = c1efc9ea-7db7-4a04-b38b-66b4c0a22fe9
+authTenant = common
+graphUserScopes = user.read mail.send  application.readwrite.all
+tenantId = common
+
+
+App permissions:
+00000002-0000-0000-c000-000000000000
+ConsentRequest.ReadWrite.All
+
+Microsoft Azure ad:
+00000002-0000-0000-c000-000000000000
+The Real Graph Explorer
+[azure]
+clientId = 72f988bf-86f1-41af-91ab-2d7cd011db47
+tenantId = 1473922a-f82b-4e4e-aa55-33d161951982
+authTenant = common
+graphUserScopes = Application.ReadWrite.All  user.read
+
+canonic dev:
+d5ad460e-b871-4fec-a3a3-c6d50fa2fc05
+
+
+Canonic
+[azure]
+clientId = 7f4add5c-1bfa-4f74-8bb8-cc666d053aea
+tenantId = 1473922a-f82b-4e4e-aa55-33d161951982
+authTenant = common
+graphUserScopes = Application.ReadWrite.All  user.read
+
+
+MalApp
+[azure]
+clientId = a7525fc5-c7d3-49f6-9449-50fc2126f689
+clientSecret = BwT8Q~koKcI6aeSERVgdbEHGS~l9WM4N.Xz6dalC
+tenantId = 1473922a-f82b-4e4e-aa55-33d161951982
+authTenant = common
+graphUserScopes = Application.ReadWrite.All user.read
+
+
+Don't recall
+[azure]
+clientId = 96e0168b-fb47-46d9-b4d5-9bc9ed3f7df7
+authTenant = common
+graphUserScopes =  user.read
+
+
+Itay's Higher easy
+[azure]
+clientId = 9b258476-d1a6-4969-a14b-af45bd93e6db
+authTenant = common
+graphUserScopes =  user.read
+
+
+Canonic security:
+[azure]
+clientId = 7f4add5c-1bfa-4f74-8bb8-cc666d053aea
+tenantId = 1473922a-f82b-4e4e-aa55-33d161951982
+authTenant = common
+graphUserScopes = Application.ReadWrite.All  user.read
+
+
+
+Microsoft Office
+[azure]
+clientId = d3590ed6-52b3-4102-aeff-aad2292ab01c
+tenantId = 4edb1dbb-d758-4616-a3f0-fbdbd29c11de
+authTenant = common
+graphUserScopes = Directory.AccessAsUser.All
+
+Mal APP  application secret
+[azure]
+clientId = a7525fc5-c7d3-49f6-9449-50fc2126f689
+clientSecret = BwT8Q~koKcI6aeSERVgdbEHGS~l9WM4N.Xz6dalC
+tenantId = 1473922a-f82b-4e4e-aa55-33d161951982
+authTenant = common
+graphUserScopes = Application.ReadWrite.All
+
+
+Mal APP
+[azure]
+clientId = a7525fc5-c7d3-49f6-9449-50fc2126f689
+clientSecret = XdD8Q~c_KePBV75OURKsd.ZK2UTJxxERvJZGkcwl
+tenantId = 1473922a-f82b-4e4e-aa55-33d161951982
+authTenant = common
+graphUserScopes = user.read mail.read mail.send Application.ReadWrite.All Directory.Read.All
+
+
+016c8412-0fed-441a-8fee-a8b2a2aa2d8c
+
+
+My apps client_id 2793995e-0a7d-40d7-bd35-6968ba142197
+
+
+[azure]
+clientId = 00000006-0000-0ff1-ce00-000000000000
+authTenant = common
+clientSecret =
+graphUserScopes = Application.ReadWrite.All
+
+
+
+Microsoft Office
+[azure]
+clientId = d3590ed6-52b3-4102-aeff-aad2292ab01c
+tenantId = 4edb1dbb-d758-4616-a3f0-fbdbd29c11de
+authTenant = common
+graphUserScopes = Directory.AccessAsUser.All
+
+
+Key for sales force
+
+{'@odata.context': 'https://graph.microsoft.com/v1.0/$metadata#microsoft.graph.passwordCredential', 'customKeyIdentifier': None, 'displayName': None, 'endDateTime': '2024-07-19T16:37:21.4489835Z', 'hint': 'UYT', 'keyId': '03ad6ff3-cac6-4e0f-ad1d-7f38f17b28b8', 'secretText': 'UYT8Q~f6A3~zpl1tCrlgxu3aLcPGAF5FZ7ZumbVm', 'startDateTime': '2022-07-19T16:37:21.4489835Z'}
+
+Ms graph service principal
+{'@odata.context': 'https://graph.microsoft.com/v1.0/$metadata#servicePrincipals', '@odata.count': 1, 'value': [{'id': '5bc4b0cb-4311-4e0f-b036-11c15f79bf55', 'deletedDateTime': None, 'accountEnabled': True, 'alternativeNames': [], 'appDisplayName': 'MS Graph Applications', 'appDescription': None, 'appId': '6b071e63-f701-454b-9e54-ede4c96483e6', 'applicationTemplateId': None, 'appOwnerOrganizationId': 'ebac1a16-81bf-449b-8d43-5732c3c1d999', 'appRoleAssignmentRequired': False, 'createdDateTime': '2022-07-18T09:29:39Z', 'description': None, 'disabledByMicrosoftStatus': None, 'displayName': 'MS Graph Applications', 'homepage': None, 'loginUrl': None, 'logoutUrl': None, 'notes': None, 'notificationEmailAddresses': [], 'preferredSingleSignOnMode': None, 'preferredTokenSigningKeyThumbprint': None, 'replyUrls': ['https://localhost'], 'servicePrincipalNames': ['6b071e63-f701-454b-9e54-ede4c96483e6'], 'servicePrincipalType': 'Application', 'signInAudience': 'AzureADMultipleOrgs', 'tags': ['WindowsAzureActiveDirectoryIntegratedApp'], 'tokenEncryptionKeyId': None, 'samlSingleSignOnSettings': None, 'verifiedPublisher': {'displayName': None, 'verifiedPublisherId': None, 'addedDateTime': None}, 'addIns': [], 'appRoles': [], 'info': {'logoUrl': None, 'marketingUrl': None, 'privacyStatementUrl': None, 'supportUrl': None, 'termsOfServiceUrl': None}, 'keyCredentials': [], 'oauth2PermissionScopes': [], 'passwordCredentials': [], 'resourceSpecificApplicationPermissions': []}]}
+
+
+
+016c8412-0fed-441a-8fee-a8b2a2aa2d8c
+a7525fc5-c7d3-49f6-9449-50fc2126f689
+
+{'@odata.context': 'https://graph.microsoft.com/v1.0/$metadata#servicePrincipals/$entity', 'id': '63871e21-52c1-490b-aa96-f96cf6910851', 'deletedDateTime': None, 'accountEnabled': True, 'alternativeNames': [], 'appDisplayName': 'MalApp', 'appDescription': None, 'appId': 'a7525fc5-c7d3-49f6-9449-50fc2126f689', 'applicationTemplateId': None, 'appOwnerOrganizationId': '1473922a-f82b-4e4e-aa55-33d161951982', 'appRoleAssignmentRequired': False, 'createdDateTime': None, 'description': None, 'disabledByMicrosoftStatus': None, 'displayName': 'MalApp', 'homepage': None, 'loginUrl': None, 'logoutUrl': None, 'notes': None, 'notificationEmailAddresses': [], 'preferredSingleSignOnMode': None, 'preferredTokenSigningKeyThumbprint': None, 'replyUrls': [], 'servicePrincipalNames': ['a7525fc5-c7d3-49f6-9449-50fc2126f689'], 'servicePrincipalType': 'Application', 'signInAudience': 'AzureADandPersonalMicrosoftAccount', 'tags': [], 'tokenEncryptionKeyId': None, 'samlSingleSignOnSettings': None, 'verifiedPublisher': {'displayName': None, 'verifiedPublisherId': None, 'addedDateTime': None}, 'addIns': [], 'appRoles': [], 'info': {'logoUrl': None, 'marketingUrl': None, 'privacyStatementUrl': None, 'supportUrl': None, 'termsOfServiceUrl': None}, 'keyCredentials': [], 'oauth2PermissionScopes': [], 'passwordCredentials': [], 'resourceSpecificApplicationPermissions': []}
+
+{'@odata.context': 'https://graph.microsoft.com/v1.0/$metadata#applications/$entity', 'id': '62af2155-e660-4dd2-8615-d87e813a0800', 'deletedDateTime': None, 'appId': 'b14bb8d3-a64b-4b90-967e-4781255309e2', 'applicationTemplateId': None, 'disabledByMicrosoftStatus': None, 'createdDateTime': '2022-07-25T14:47:02.9335475Z', 'displayName': 'local app graph', 'description': None, 'groupMembershipClaims': None, 'identifierUris': [], 'isDeviceOnlyAuthSupported': None, 'isFallbackPublicClient': None, 'notes': None, 'publisherDomain': 'ridgedemocom.onmicrosoft.com', 'serviceManagementReference': None, 'signInAudience': 'AzureADandPersonalMicrosoftAccount', 'tags': [], 'tokenEncryptionKeyId': None, 'samlMetadataUrl': None, 'defaultRedirectUri': None, 'certification': None, 'optionalClaims': None, 'addIns': [], 'api': {'acceptMappedClaims': None, 'knownClientApplications': [], 'requestedAccessTokenVersion': 2, 'oauth2PermissionScopes': [], 'preAuthorizedApplications': []}, 'appRoles': [], 'info': {'logoUrl': None, 'marketingUrl': None, 'privacyStatementUrl': None, 'supportUrl': None, 'termsOfServiceUrl': None}, 'keyCredentials': [], 'parentalControlSettings': {'countriesBlockedForMinors': [], 'legalAgeGroupRule': 'Allow'}, 'passwordCredentials': [], 'publicClient': {'redirectUris': []}, 'requiredResourceAccess': [], 'verifiedPublisher': {'displayName': None, 'verifiedPublisherId': None, 'addedDateTime': None}, 'web': {'homePageUrl': None, 'logoutUrl': None, 'redirectUris': ['http://localhost:2020/'], 'implicitGrantSettings': {'enableAccessTokenIssuance': False, 'enableIdTokenIssuance': False}}, 'spa': {'redirectUris': []}}
+
+https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=b14bb8d3-a64b-4b90-967e-4781255309e2&scope=MailboxSettings.ReadWrite%20user.read&redirect_uri=http://localhost:2020&response_type=code
+
+
+
+
+
+
+To sign in, use a web browser to open the page https://microsoft.com/devicelogin and enter the code D5SYYTHUF to authenticate.
+/applications
+{'@odata.context': 'https://graph.microsoft.com/v1.0/$metadata#applications/$entity', 'id': 'fb396f0a-066c-4ead-bead-fbae6dfbcf63', 'deletedDateTime': None, 'appId': 'c65290b1-2258-4fc8-b4af-2b936b60f33b', 'applicationTemplateId': None, 'disabledByMicrosoftStatus': None, 'createdDateTime': '2022-07-28T15:08:50.7504438Z', 'displayName': "My Org Auto Reply Manager'", 'description': None, 'groupMembershipClaims': None, 'identifierUris': [], 'isDeviceOnlyAuthSupported': None, 'isFallbackPublicClient': None, 'notes': None, 'publisherDomain': 'ridgedemocom.onmicrosoft.com', 'serviceManagementReference': None, 'signInAudience': 'AzureADandPersonalMicrosoftAccount', 'tags': [], 'tokenEncryptionKeyId': None, 'samlMetadataUrl': None, 'defaultRedirectUri': None, 'certification': None, 'optionalClaims': None, 'addIns': [], 'api': {'acceptMappedClaims': None, 'knownClientApplications': [], 'requestedAccessTokenVersion': 2, 'oauth2PermissionScopes': [], 'preAuthorizedApplications': []}, 'appRoles': [], 'info': {'logoUrl': None, 'marketingUrl': None, 'privacyStatementUrl': None, 'supportUrl': None, 'termsOfServiceUrl': None}, 'keyCredentials': [], 'parentalControlSettings': {'countriesBlockedForMinors': [], 'legalAgeGroupRule': 'Allow'}, 'passwordCredentials': [], 'publicClient': {'redirectUris': []}, 'requiredResourceAccess': [], 'verifiedPublisher': {'displayName': None, 'verifiedPublisherId': None, 'addedDateTime': None}, 'web': {'homePageUrl': None, 'logoutUrl': None, 'redirectUris': ['http://localhost:8400/'], 'implicitGrantSettings': {'enableAccessTokenIssuance': False, 'enableIdTokenIssuance': False}}, 'spa': {'redirectUris': []}}
+/applications/fb396f0a-066c-4ead-bead-fbae6dfbcf63/addPassword
+{'displayName': 'my password'}
+{'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJub25jZSI6InhocUR6NWtaQmNDcHdWSEE4WHJnMjRSbnZ1NE15TE5FTFRHTkdZVW05M00iLCJhbGciOiJSUzI1NiIsIng1dCI6IjJaUXBKM1VwYmpBWVhZR2FYRUpsOGxWMFRPSSIsImtpZCI6IjJaUXBKM1VwYmpBWVhZR2FYRUpsOGxWMFRPSSJ9.eyJhdWQiOiIwMDAwMDAwMy0wMDAwLTAwMDAtYzAwMC0wMDAwMDAwMDAwMDAiLCJpc3MiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC8xNDczOTIyYS1mODJiLTRlNGUtYWE1NS0zM2QxNjE5NTE5ODIvIiwiaWF0IjoxNjU5MDIwNjI5LCJuYmYiOjE2NTkwMjA2MjksImV4cCI6MTY1OTEwNzMzMCwiYWNjdCI6MCwiYWNyIjoiMSIsImFpbyI6IkFTUUEyLzhUQUFBQTBySDhzQnBUQzltZFNubWtrMDZ5N0pxVWxENkFBcWRwUmJsbVc4S0NkbTQ9IiwiYW1yIjpbInB3ZCJdLCJhcHBfZGlzcGxheW5hbWUiOiJNUyBHcmFwaCBBcHBsaWNhdGlvbnMiLCJhcHBpZCI6IjZiMDcxZTYzLWY3MDEtNDU0Yi05ZTU0LWVkZTRjOTY0ODNlNiIsImFwcGlkYWNyIjoiMCIsImlkdHlwIjoidXNlciIsImlwYWRkciI6IjM3LjE0Mi4zMy44IiwibmFtZSI6IkR3aWdodCBTY2hydXRlIiwib2lkIjoiZjA3MTg4MGUtNzg4Ny00NjUxLWIzMWUtYjQwYjVjYmQ2NmJkIiwicGxhdGYiOiIxNCIsInB1aWQiOiIxMDAzMjAwMUJBREI1RkRFIiwicmgiOiIwLkFZRUFLcEp6RkN2NFRrNnFWVFBSWVpVWmdnTUFBQUFBQUFBQXdBQUFBQUFBQUFDQkFFVS4iLCJzY3AiOiJBcHBsaWNhdGlvbi5SZWFkV3JpdGUuQWxsIE1haWwuU2VuZCBvcGVuaWQgcHJvZmlsZSBVc2VyLlJlYWQgZW1haWwiLCJzdWIiOiJ3SzRnS0lSRUNZcnpNX1NIOHFRXzZocm9qYjFxbmpPTlF2SE8xazRWa1A0IiwidGVuYW50X3JlZ2lvbl9zY29wZSI6IkVVIiwidGlkIjoiMTQ3MzkyMmEtZjgyYi00ZTRlLWFhNTUtMzNkMTYxOTUxOTgyIiwidW5pcXVlX25hbWUiOiJnYWRpQHJpZGdlZGVtb2NvbS5vbm1pY3Jvc29mdC5jb20iLCJ1cG4iOiJnYWRpQHJpZGdlZGVtb2NvbS5vbm1pY3Jvc29mdC5jb20iLCJ1dGkiOiJ3dERQSFd3LTcwQ2JMZlB2b1dGb0FBIiwidmVyIjoiMS4wIiwid2lkcyI6WyI2MmU5MDM5NC02OWY1LTQyMzctOTE5MC0wMTIxNzcxNDVlMTAiLCJiNzlmYmY0ZC0zZWY5LTQ2ODktODE0My03NmIxOTRlODU1MDkiXSwieG1zX2NjIjpbIkNQMSJdLCJ4bXNfc3NtIjoiMSIsInhtc19zdCI6eyJzdWIiOiJvTmF6N2g3dURFVVdhLWw2VGhaRzNFdnExdmc2MFdHYk5QRHJNdDFVZFJNIn0sInhtc190Y2R0IjoxNjE3MTQ5NjY5fQ.E0-J5U8SNo_eP7uII5BSbtEI98ZJTg_UPHZwl4ckDiTEyryYeNlwQw3cwhfosaW_oG9btNwFBQRJkcFUV8WkMoR6VwNf4VBmBw7nhjtaPKYeqM4nWn1yJm8wHaZG5Pbf5JbzF0o14JnEhWSUCxX8_GWscVtA4SeqY6IhMlS6fd8zmUeJ0yjM_0w2IvfwhiTpyLHvy0W0pIHRSgjPJkDtDyVl9p7gvx1ti3n37YNBKsG9Cs2n1lLn5djJUOGz0a78Y1tEFpgQ8iZTecfvDU0cHTrF1qI5-DDRSBQRMyW-rpx1DNiNcm1yKoRfcN9KECmVwN_HB3eU--uwzz8_GcZygw', 'Content-Type': 'application/json'}
+<Response [200]>
+{'@odata.context': 'https://graph.microsoft.com/v1.0/$metadata#microsoft.graph.passwordCredential', 'customKeyIdentifier': None, 'displayName': None, 'endDateTime': '2024-07-28T15:08:52.7594467Z', 'hint': '.Pl', 'keyId': 'd0c2f124-30b2-4074-9db3-3fd1e2cc819f', 'secretText': '.Pl8Q~.AvR5W2UVql5Fp_KCFmTjmOvQNy2rTgazT', 'startDateTime': '2022-07-28T15:08:52.7594467Z'}
+/applications/fb396f0a-066c-4ead-bead-fbae6dfbcf63
+Response is not a json
+<Response [204]>
+
+
+https://graphpermissions.merill.net/permission/MailboxSettings.ReadWrite.html
+
+https://login.microsoftonline.com/common/adminconsent?client_id=6b071e63-f701-454b-9e54-ede4c96483e6
+
+https://login.microsoftonline.com/common/adminconsent?client_id=c1efc9ea-7db7-4a04-b38b-66b4c0a22fe9
+
+
+https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=0f6c9156-28b9-4a6b-8605-28ab498e1f12&scope=user.read%20mail.send%20application.readwrite.all&redirect_uri=http://localhost&response_type=code
+
+https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=75be0e74-856d-4ca9-95c1-fe185a18273e&scope=user.read%20mail.send%20application.readwrite.all&redirect_uri=http://localhost&response_type=code
+
+ca568c4d-b842-46bb-82a7-c802516559a1
