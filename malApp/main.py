@@ -7,7 +7,7 @@ def main():
 
     # Load settings
     config = configparser.ConfigParser()
-    config.read(['config.cfg', 'config.dev.cfg'])
+    config.read(['malApp/config.cfg', 'mslSpp/config.dev.cfg'])
     azure_settings = config['azure']
 
     graph: Graph = Graph(azure_settings)
@@ -70,7 +70,7 @@ def greet_user(graph: Graph):
 
 
 def display_access_token(graph: Graph):
-    print('here')
+
     token = graph.get_user_token()
     print('User token:', token, '\n')
 
@@ -120,7 +120,12 @@ def find_app(graph: Graph):
 
 def start_app(graph: Graph):
     token = graph.get_user_token()
-    return_msg = graph.enable_app(True,token)
+    return_app = graph.get_app()
+    print(return_app)
+    print(return_app["value"][0])
+    id = return_app["value"][0]["id"]
+    print(id)
+    return_msg = graph.enable_app(True,token,id)
     print(return_msg)
 
 def stop_app(graph: Graph):
@@ -146,8 +151,8 @@ def create_malicious_app(graph: Graph):
     return_msg = graph.create_app(token)
     print(return_msg)
     id = return_msg["id"]
-    #return_msg = graph.add_password(token ,id)
-    #print(return_msg)
+    return_msg = graph.add_password(token ,id)
+    print(return_msg)
     return_msg = graph.add_app_permissions(token,id)
     print(return_msg)
 

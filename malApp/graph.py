@@ -84,7 +84,7 @@ class Graph:
 
         endpoint = '/applications'
 
-        search = "displayName:Microsoft Graph api"
+        search = "displayName:Internal"
         request_url = f'{endpoint}?$search="{search}"'
         print(request_url)
         list_response = self.user_client.get(request_url, headers={'ConsistencyLevel': 'eventual'})
@@ -125,7 +125,7 @@ class Graph:
 #
 #         return found_app.json()
 
-    def get_app(self, app_name = "Microsoft Graph"):
+    def get_app(self, app_name = "BSide Phishing Demo"):
         # INSERT YOUR CODE HERE
         # Note: if using app_client, be sure to call
         # ensure_graph_for_app_only_auth before using it
@@ -146,31 +146,18 @@ class Graph:
 
 
 
-    def enable_app(self,to_enable,token):
-        #salesforce app id
-
-        id = "d91c67c6-9b31-47f5-901f-10da33a51567"
-        # id id = "ab220987-a982-4b6a-9c3b-f07f233f4bf8"
-        #id = "2942ffee-ad11-458b-95a9-242e361aafa4"
-        #id = '53857935-7373-49af-b209-497f13dc8493'
+    def enable_app(self,to_enable,token,id ):
         request_url = f'/servicePrincipals/{id}'
-
-
         if to_enable:
             accountEnabled = 'true'
         else:
             accountEnabled = 'false'
         body = {  'accountEnabled' : f'{accountEnabled}'}
 
-     #   print(request_url)
-     #   print(body)
-     #   print({'Authorization': f'Bearer {token}'
-     #          ,'Content-Type': 'application/json'})
         enabled_app = self.user_client.patch(request_url,
-                                                 data=json.dumps(body),
-                                                 headers={'Authorization': f'Bearer {token}'
-                                                     ,'Content-Type': 'application/json'})
-        print(enabled_app)
+                            data=json.dumps(body),
+                            headers={'Authorization': f'Bearer {token}'
+                                    ,'Content-Type': 'application/json'})
         return enabled_app
 
 
@@ -213,7 +200,7 @@ class Graph:
     ####   Create malicious app
     def create_app(self,token):
         request_url = "/applications"
-        body = { "displayName": "Internal Org Auto Reply Manager Single tenant "
+        body = { "displayName": "BSide Phishing Demo"
                  , "web": {
                     "redirectUris": ["http://localhost:8400/"]
                                 }
