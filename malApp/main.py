@@ -7,7 +7,7 @@ def main():
 
     # Load settings
     config = configparser.ConfigParser()
-    config.read(['malApp/config.cfg', 'mslSpp/config.dev.cfg'])
+    config.read(['config.cfg', 'mslSpp/config.dev.cfg'])
     azure_settings = config['azure']
 
     graph: Graph = Graph(azure_settings)
@@ -29,6 +29,7 @@ def main():
         print('7. add app permissions ')
         print('8. List apps ')
         print('9. create malicious apps ')
+        print('10. list inbox ')
 
 
         try:
@@ -56,6 +57,8 @@ def main():
             list_apps(graph)
         elif choice == 9:
             create_malicious_app(graph)
+        elif choice == 10:
+            list_inbox(graph)
 
         else:
             print('Invalid choice!\n')
